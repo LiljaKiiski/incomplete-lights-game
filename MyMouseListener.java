@@ -35,17 +35,9 @@ public class MyMouseListener implements MouseListener{
 			return held;
 		}
 
-		public void getCoords(){
-			
-		}
-
-		public int getMouseX(){
-			//X relative to screen minus x relative to frame
-			return (int)(MouseInfo.getPointerInfo().getLocation().getX() - frame.getLocationOnScreen().getX());
-		}
-
-		public int getMouseY(){
-			//Y relative to screen minus y relative to frame
-			return (int)(MouseInfo.getPointerInfo().getLocation().getY() - frame.getLocationOnScreen().getY());
+		public MyPoint getCoords(){
+			int x = (int)(MouseInfo.getPointerInfo().getLocation().getX() - frame.getLocationOnScreen().getX());
+			int y =  (int)(MouseInfo.getPointerInfo().getLocation().getY() - frame.getLocationOnScreen().getY()) - Constants.ADD;
+			return new MyPoint(x, y);
 		}
 }

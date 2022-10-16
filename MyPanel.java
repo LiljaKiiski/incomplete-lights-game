@@ -8,15 +8,19 @@ import java.awt.BasicStroke;
 import java.util.ArrayList;
 
 public class MyPanel extends JPanel {
-		public ArrayList<MyPoint> points;
+		private ArrayList<MyPoint> points;
 
     	public MyPanel(){
         	setBounds(Constants.FRAME_BOUNDS);
 			points = new ArrayList<>();
     	}
 
-		public void addPoint(PMyPoint p){
-			points(p)
+		public void addPoint(MyPoint p){
+			points.add(p);
+		}
+
+		public void clearPoints(){
+			points.clear();
 		}
 
     	@Override
@@ -24,12 +28,18 @@ public class MyPanel extends JPanel {
         	super.paintComponent(g);
         	Graphics2D g2d = (Graphics2D)g;
 
-        	g2d.setPaint(Color.blue);
+        	g2d.setPaint(Color.RED);
+			g2d.setStroke(new BasicStroke(Constants.LINE_SIZE));
 
-			g2d.setStroke(new BasicStroke(10));
+			for (int x = 1; x < points.size(); x++){
+				MyPoint p = points.get(x);
+				MyPoint p2 = points.get(x-1);
 
-			g2d.drawLine(100, 100, 100, 100);
+				//Connect two points
+				g2d.drawLine(p.x, p.y, p2.x, p2.y);
+			}
 
-			System.out.println("point!");
+			//Connect points
+
     	}
 }

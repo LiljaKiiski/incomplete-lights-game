@@ -12,11 +12,11 @@ public class Main {
 
     	public Main(){
 			frame = new JFrame("Lights");
+			panel = new MyPanel();
         	keyListener = new MyKeyListener();
         	mouseListener = new MyMouseListener(frame);
-        	actionListener = new MyActionListener(mouseListener);
+        	actionListener = new MyActionListener(mouseListener, panel);
         	timer = new Timer(Constants.DELAY, actionListener);
-        	panel = new MyPanel();
 
         	setUpFrame();
     	}
@@ -37,6 +37,8 @@ public class Main {
         	frame.setResizable(false);
         	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         	frame.setVisible(true);
+
+			int num = 0;
 
         	timer.start();
     	}
