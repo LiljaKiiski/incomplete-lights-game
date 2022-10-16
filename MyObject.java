@@ -23,8 +23,6 @@ public class MyObject {
     }
 
     public void paint(Graphics2D g2d){
-        //Later paint image
-
         g2d.drawRect(x, y, width, height);
     }
 }

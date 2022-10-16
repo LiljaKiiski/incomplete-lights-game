@@ -10,18 +10,19 @@ public class MyPanel extends JPanel {
 	private ArrayList<MyPoint> points;
 
 	private Planet planet;
-	private ArrayList<MyObject> bullets;
+	private ArrayList<Rock> rocks;
 
 	public MyPanel(){
 		setBounds(Constants.FRAME_BOUNDS);
 		points = new ArrayList<>();
 
 		planet = new Planet(300, 300, 150, 150);
-		bullets = new ArrayList<>();
+		rocks = new ArrayList<>();
+		addRock();
 	}
 
-	public void addBullet(){
-		bullets.add(new Bullet());
+	public void addRock(){
+		rocks.add(new Rock());
 	}
 
 	public void addPoint(MyPoint p){
@@ -48,6 +49,10 @@ public class MyPanel extends JPanel {
 
 			//Connect two points
 			g2d.drawLine(p.x, p.y, p2.x, p2.y);
+		}
+
+		for (Rock r : rocks){
+			r.paint(g2d);
 		}
 	}
 }

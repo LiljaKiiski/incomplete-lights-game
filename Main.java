@@ -14,7 +14,7 @@ public class Main {
 	private Timer timer;
 
 	//Bullet shooting timer
-	private Timer bulletTimer;
+	private Timer rockTimer;
 
 	public Main(){
 		frame = new JFrame("Lights");
@@ -23,14 +23,14 @@ public class Main {
 		mouseListener = new MyMouseListener(frame);
 		
 		timer = new Timer(Constants.DELAY, e -> runGame());
-		bulletTimer = new Timer(Constants.DELAY, e -> addBullets());
+		rockTimer = new Timer(Constants.DELAY, e -> addRocks());
 
 		setUpFrame();
 		timer.start();
 	}
 
-	public void addBullets(){
-		panel.addBullet();
+	public void addRocks(){
+		panel.addRock();
 	}
 
 	public void runGame(){
