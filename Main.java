@@ -4,6 +4,7 @@ import javax.swing.Timer;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
 
 public class Main {
 	private MyMouseListener mouseListener;
@@ -36,12 +37,13 @@ public class Main {
 	public void runGame(){
 		if (mouseListener.isHeld()){
 			panel.addPoint(mouseListener.getCoords());
-
-			panel.repaint();
 		
 		} else {
 			panel.clearPoints();
 		}
+
+		panel.repaint();
+		Toolkit.getDefaultToolkit().sync();
 	}
 
 	public void setUpFrame(){

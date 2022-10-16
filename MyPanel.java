@@ -52,6 +52,7 @@ public class MyPanel extends JPanel {
 		}
 
 		for (Rock r : rocks){
+			r.move();
 			r.paint(g2d);
 		}
 	}

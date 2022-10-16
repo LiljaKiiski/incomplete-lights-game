@@ -6,7 +6,7 @@ public class Rock extends MyObject{
 
     //Random rock direction and size
     public Rock(){
-        super(0, 0, 50, 50);
+        super(0, 0, 20, 20);
         slope = 1;
     }
 
