@@ -13,4 +13,6 @@ public class Constants {
 
 	public static final int LINE_SIZE = 10;
 	public static final Color LINE_COLOR = Color.BLUE;
+	public static final Color PLANET_COLOR = Color.MAGENTA;
+	public static final Color BULLET_COLOR = Color.ORANGE;
 }

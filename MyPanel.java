@@ -9,15 +9,19 @@ import java.util.ArrayList;
 public class MyPanel extends JPanel {
 	private ArrayList<MyPoint> points;
 
-	private MyObject planet;
+	private Planet planet;
 	private ArrayList<MyObject> bullets;
 
 	public MyPanel(){
 		setBounds(Constants.FRAME_BOUNDS);
 		points = new ArrayList<>();
 
-		planet = new MyObject(300, 300, 150, 150);
+		planet = new Planet(300, 300, 150, 150);
 		bullets = new ArrayList<>();
+	}
+
+	public void addBullet(){
+		bullets.add(new Bullet());
 	}
 
 	public void addPoint(MyPoint p){

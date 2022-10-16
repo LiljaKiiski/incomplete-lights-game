@@ -2,23 +2,46 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.Timer;
 
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
 public class Main {
-	MyKeyListener keyListener;
-	MyMouseListener mouseListener;
-	MyActionListener actionListener;
-	Timer timer;
-	JFrame frame;
-	MyPanel panel;
+	private MyMouseListener mouseListener;
+	private JFrame frame;
+	private MyPanel panel;
+
+	//Main timer
+	private Timer timer;
+
+	//Bullet shooting timer
+	private Timer bulletTimer;
 
 	public Main(){
 		frame = new JFrame("Lights");
 		panel = new MyPanel();
-		keyListener = new MyKeyListener();
+
 		mouseListener = new MyMouseListener(frame);
-		actionListener = new MyActionListener(mouseListener, panel);
-		timer = new Timer(Constants.DELAY, actionListener);
+		
+		timer = new Timer(Constants.DELAY, e -> runGame());
+		bulletTimer = new Timer(Constants.DELAY, e -> addBullets());
 
 		setUpFrame();
+		timer.start();
+	}
+
+	public void addBullets(){
+		panel.addBullet();
+	}
+
+	public void runGame(){
+		if (mouseListener.isHeld()){
+			panel.addPoint(mouseListener.getCoords());
+
+			panel.repaint();
+		
+		} else {
+			panel.clearPoints();
+		}
 	}
 
 	public void setUpFrame(){
@@ -28,16 +51,11 @@ public class Main {
 
 		frame.addMouseListener(mouseListener);
 
-		frame.addKeyListener(keyListener);
-		frame.setFocusable(true);
-
 		frame.add(panel);
 
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
-
-		timer.start();
 	}
 }
