@@ -6,4 +6,6 @@ public class Constants {
     	public static final Rectangle FRAME_BOUNDS = new Rectangle(0, 0, FRAME_WIDTH, FRAME_HEIGHT);
 
     	public static final int DELAY = 100;
+
+		public static final int LINE_SIZE = 5;
 }

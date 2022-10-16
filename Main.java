@@ -7,12 +7,14 @@ public class Main {
     	MyMouseListener mouseListener;
     	MyActionListener actionListener;
     	Timer timer;
+		JFrame frame;
     	MyPanel panel;
 
     	public Main(){
+			frame = new JFrame("Lights");
         	keyListener = new MyKeyListener();
-        	mouseListener = new MyMouseListener();
-        	actionListener = new MyActionListener();
+        	mouseListener = new MyMouseListener(frame);
+        	actionListener = new MyActionListener(mouseListener);
         	timer = new Timer(Constants.DELAY, actionListener);
         	panel = new MyPanel();
 
@@ -20,22 +22,21 @@ public class Main {
     	}
 
     	public void setUpFrame(){
-        	JFrame f = new JFrame("Swing Template");
-        	f.setIconImage(new ImageIcon("images/image.png").getImage());
-        	f.setSize(Constants.FRAME_WIDTH, Constants.FRAME_HEIGHT);
-        	f.setLayout(null);
+        	frame.setIconImage(new ImageIcon("images/image.png").getImage());
+        	frame.setSize(Constants.FRAME_WIDTH, Constants.FRAME_HEIGHT);
+        	frame.setLayout(null);
 
-        	f.addMouseListener(mouseListener);
+        	frame.addMouseListener(mouseListener);
 
-        	f.addKeyListener(keyListener);
-        	f.setFocusable(true);
+        	frame.addKeyListener(keyListener);
+        	frame.setFocusable(true);
 
-        	f.add(panel);
+        	frame.add(panel);
 
-        	f.setLocationRelativeTo(null);
-        	f.setResizable(false);
-        	f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        	f.setVisible(true);
+        	frame.setLocationRelativeTo(null);
+        	frame.setResizable(false);
+        	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        	frame.setVisible(true);
 
         	timer.start();
     	}
