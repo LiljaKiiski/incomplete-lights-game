@@ -35,6 +35,10 @@ public class MyMouseListener implements MouseListener{
 			return held;
 		}
 
+		public void getCoords(){
+			
+		}
+
 		public int getMouseX(){
 			//X relative to screen minus x relative to frame
 			return (int)(MouseInfo.getPointerInfo().getLocation().getX() - frame.getLocationOnScreen().getX());

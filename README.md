@@ -1,3 +1,3 @@
-# swing-template
+# lights
 
-Game template for Java
+Another game I probably won't finish
