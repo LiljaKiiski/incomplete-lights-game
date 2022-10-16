@@ -9,7 +9,7 @@ public class Constants {
 
 	public static final Rectangle FRAME_BOUNDS = new Rectangle(0, 0, FRAME_WIDTH, FRAME_HEIGHT);
 
-	public static final int DELAY = 13;
+	public static final int DELAY = 20;
 
 	public static final int LINE_SIZE = 10;
 	public static final Color LINE_COLOR = Color.BLUE;

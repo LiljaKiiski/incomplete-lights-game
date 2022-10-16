@@ -10,12 +10,14 @@ public class MyPanel extends JPanel {
 	private ArrayList<MyPoint> points;
 
 	private MyObject planet;
+	private ArrayList<MyObject> bullets;
 
 	public MyPanel(){
 		setBounds(Constants.FRAME_BOUNDS);
 		points = new ArrayList<>();
 
 		planet = new MyObject(300, 300, 150, 150);
+		bullets = new ArrayList<>();
 	}
 
 	public void addPoint(MyPoint p){
