@@ -12,8 +12,22 @@ public class Rock extends MyObject{
         System.out.println((int)(Math.random() *  2));
 
         //Set x and y to random making sure one of them is 0
-        x = (int)(Math.random() *  2) == 0 ? (int)(Math.random() * Constants.FRAME_WIDTH) : 0;
-        y = x == 0 ? (int)(Math.random() * Constants.FRAME_WIDTH) : 0;
+
+        //Make x start at side
+        int setBase = (int)(Math.random() *  2);
+
+        //Set to random side
+        if (setBase == 0){
+            x = (int)(Math.random() *  2) == 0 ? Constants.FRAME_WIDTH : 0;
+            y = (int)(Math.random() * Constants.FRAME_HEIGHT);
+
+        //Set to random start
+        } else {
+            x = (int)(Math.random() * Constants.FRAME_WIDTH);
+            y = (int)(Math.random() *  2) == 0 ? Constants.FRAME_HEIGHT: 0;
+        }
+
+        //Get slope from start to target (planet at center)
 
         slope = 1;
     }

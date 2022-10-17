@@ -13,7 +13,7 @@ public class MyPanel extends JPanel {
 	private ArrayList<Rock> rocks;
 
 	public MyPanel(){
-		setBounds(Constants.FRAME_BOUNDS);
+		setBounds(0, 0, Constants.FRAME_WIDTH, Constants.FRAME_HEIGHT);
 		points = new ArrayList<>();
 
 		planet = new Planet(300, 300, 150, 150);
