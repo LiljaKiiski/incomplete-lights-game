@@ -66,7 +66,8 @@ public class MyPanel extends JPanel {
 			}
 
 			//Print rocks
-			for (Rock r : rocks){
+			for (int x = 0; x < rocks.size(); x++){
+				Rock r = rocks.get(x);
 				r.move();
 				r.paint(g2d);
 
