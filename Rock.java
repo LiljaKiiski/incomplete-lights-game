@@ -4,14 +4,13 @@ import javax.swing.ImageIcon;
 public class Rock extends MyObject{
     private int slope;
 
+    //Direction x/y (1 or -1)
+    private int dirX;
+    private int dirY;
+
     //Random rock direction and size
     public Rock(){
         super(0, 0, 20, 20);
-
-        //Make random x, y location
-        System.out.println((int)(Math.random() *  2));
-
-        //Set x and y to random making sure one of them is 0
 
         //Make x start at side
         int setBase = (int)(Math.random() *  2);
@@ -28,13 +27,25 @@ public class Rock extends MyObject{
         }
 
         //Get slope from start to target (planet at center)
+        int slopeX = Math.abs(Constants.CENTERX - x);
+        int slopeY = Math.abs(Constants.CENTERY - y);
 
-        slope = 1;
+        //Make slope go backward
+        dirX = 1;
+        dirY = 1;
+        if (x > Constants.CENTERX) {
+            dirX = -1;
+        
+        } if (y > Constants.CENTERY){
+            dirY = -1;
+        }
+
+        slope = slopeY/slopeX;
     }
 
     public void move(){
-        x += 1;
-        y += slope;
+        x += 1*dirX;
+        y += slope*dirY;
     }
     
     public void paint(Graphics2D g2d){ 

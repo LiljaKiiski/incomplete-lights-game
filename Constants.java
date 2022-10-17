@@ -12,4 +12,8 @@ public class Constants {
 	public static final Color LINE_COLOR = Color.BLUE;
 	public static final Color PLANET_COLOR = Color.MAGENTA;
 	public static final Color ROCK_COLOR = Color.ORANGE;
+
+	//Center of screen
+	public static final int CENTERX = FRAME_WIDTH/2;  
+    public static final int CENTERY = FRAME_HEIGHT/2;  
 }

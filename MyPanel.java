@@ -6,25 +6,15 @@ import java.awt.BasicStroke;
 
 import java.util.ArrayList;
 
-
-//Have to use this because flipping Java Swing is stupid
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-
 public class MyPanel extends JPanel {
 	private ArrayList<MyPoint> points;
 
 	private Planet planet;
 	private ArrayList<Rock> rocks;
 
-	//Lock for updating panel.rocks and points cuz flip java
-	public Lock lock;
-
 	public MyPanel(){
 		setBounds(0, 0, Constants.FRAME_WIDTH, Constants.FRAME_HEIGHT);
 		points = new ArrayList<>();
-
-		lock = new ReentrantLock();
 
 		planet = new Planet(300, 300, 150, 150);
 		rocks = new ArrayList<>();

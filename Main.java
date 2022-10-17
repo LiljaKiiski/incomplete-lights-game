@@ -30,7 +30,6 @@ public class Main {
 	}
 
 	public void runGame(){
-	
 		//Add/ clear points
 		if (mouseListener.isHeld()){
 			panel.addPoint(mouseListener.getCoords());
