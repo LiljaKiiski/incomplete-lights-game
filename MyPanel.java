@@ -54,6 +54,13 @@ public class MyPanel extends JPanel {
 		for (Rock r : rocks){
 			r.move();
 			r.paint(g2d);
+
+			//Remove rock from list if not in screen range
+			if (r.x < 0 || r.x > Constants.FRAME_WIDTH ||
+					r.y < 0 || r.y > Constants.FRAME_HEIGHT){
+
+				rocks.remove(r);
+			}
 		}
 	}
 }

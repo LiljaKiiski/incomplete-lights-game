@@ -24,10 +24,11 @@ public class Main {
 		mouseListener = new MyMouseListener(frame);
 		
 		timer = new Timer(Constants.DELAY, e -> runGame());
-		rockTimer = new Timer(Constants.DELAY, e -> addRocks());
+		rockTimer = new Timer(Constants.DELAY*50, e -> addRocks());
 
 		setUpFrame();
 		timer.start();
+		rockTimer.start();
 	}
 
 	public void addRocks(){
