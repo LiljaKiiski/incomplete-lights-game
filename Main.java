@@ -30,25 +30,19 @@ public class Main {
 	}
 
 	public void runGame(){
-		try {
-			panel.lock.lock();
-			
-			//Add/ clear points
-			if (mouseListener.isHeld()){
-				panel.addPoint(mouseListener.getCoords());
-			
-			} else {
-				panel.clearPoints();
-			}
+	
+		//Add/ clear points
+		if (mouseListener.isHeld()){
+			panel.addPoint(mouseListener.getCoords());
+		
+		} else {
+			panel.clearPoints();
+		}
 
-			//Every certain time add a rock
-			if (addTime == 50){
-				addTime = 0;
-				panel.addRock();
-			}
-
-		} finally {
-			panel.lock.unlock();
+		//Every certain time add a rock
+		if (addTime == 50){
+			addTime = 0;
+			panel.addRock();
 		}
 
 		//Paint
