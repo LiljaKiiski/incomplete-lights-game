@@ -12,9 +12,9 @@ public class Main {
 	private MyPanel panel;
 
 	private int addTime; //Add rock every 50 or something
-
-	//Main timer
 	private Timer timer;
+
+	private boolean mouseLastHeld;
 
 	public Main(){
 		frame = new JFrame("Lights");
@@ -25,6 +25,8 @@ public class Main {
 		
 		timer = new Timer(Constants.DELAY, e -> runGame());
 		
+		mouseLastHeld = false;
+
 		setUpFrame();
 		timer.start();
 	}
@@ -32,11 +34,15 @@ public class Main {
 	public void runGame(){
 		//Add/ clear points
 		if (mouseListener.isHeld()){
+			if (!mouseLastHeld){
+				panel.clearPoints();
+			}
+
 			panel.addPoint(mouseListener.getCoords());
-		
-		} else {
-			panel.clearPoints();
+
 		}
+
+		mouseLastHeld = mouseListener.isHeld();
 
 		//Every certain time add a rock
 		if (addTime == 50){
@@ -48,7 +54,6 @@ public class Main {
 		panel.repaint();
 		Toolkit.getDefaultToolkit().sync();
 		addTime++;
-
 	}
 
 	public void setUpFrame(){
