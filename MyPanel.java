@@ -44,12 +44,13 @@ public class MyPanel extends JPanel {
 		g2d.setPaint(Constants.LINE_COLOR);
 		g2d.setStroke(new BasicStroke(Constants.LINE_SIZE));
 
-		for (int x = 1; x < points.size(); x++){
+		for (int x = 0; x < points.size(); x++){
 			MyPoint p = points.get(x);
-			MyPoint p2 = points.get(x-1);
+			//MyPoint p2 = points.get(x-1);
 
 			//Connect points
-			g2d.drawLine(p.x, p.y, p2.x, p2.y);
+			g2d.drawLine(p.x, p.y, p.x, p.y);
+			//g2d.drawLine(p.x, p.y, p2.x, p2.y);
 		}
 
 		//Print rocks
@@ -64,6 +65,6 @@ public class MyPanel extends JPanel {
 
 				rocks.remove(r);
 			}
-			}
+		}
 	}
 }
