@@ -45,7 +45,7 @@ public class Main {
 		mouseLastHeld = mouseListener.isHeld();
 
 		//Every certain time add a rock
-		if (addTime == 50){
+		if (addTime == 80){
 			addTime = 0;
 			panel.addRock();
 		}
