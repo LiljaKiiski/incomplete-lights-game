@@ -1,6 +1,5 @@
 import java.awt.Graphics2D;
 import javax.swing.ImageIcon;
-
 import java.util.ArrayList;
 
 public class Planet extends MyObject{
@@ -8,8 +7,8 @@ public class Planet extends MyObject{
 
     public Planet(int x, int y, int width, int height){
         super(x, y, width, height);
-        x = (Constants.FRAME_WIDTH - width)/2;
-        y = (Constants.FRAME_HEIGHT - height)/2;    
+        this.x = (Constants.FRAME_WIDTH - width)/2;
+        this.y = (Constants.FRAME_HEIGHT - height)/2;    
 
         health = 10;
     }
@@ -56,6 +55,12 @@ public class Planet extends MyObject{
      @Override
     public void paint(Graphics2D g2d){ 
         g2d.setPaint(Constants.PLANET_COLOR);
-        g2d.fillOval(x, y, width, height);
+        
+        health = 5;
+
+        //Percent filled
+        int amntFilled = health * 36;
+
+        g2d.fillArc(x, y, width, height, 0, amntFilled);
     }
 }

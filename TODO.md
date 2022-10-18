@@ -7,3 +7,7 @@
     - and make it yourself
 - GOOD art
     - high score board
+
+- OKAY SO THIS COOL IDEA
+    - Like as planet loses health it likes becomes less colored in
+    - yes
