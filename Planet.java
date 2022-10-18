@@ -20,28 +20,17 @@ public class Planet extends MyObject{
         for (int x = 0; x < rocks.size(); x++){
             Rock r = rocks.get(x);
 
-            int pLeft = this.x;
-            int pRight = this.x + this.width;
-            int pTop = this.y;
-            int pBottom = this.y + this.height;
+            //Planet and rock centers
+            int pCenterX = this.x + this.width/2;
+            int pCenterY = this.y + this.height/2;
 
-            int rLeft = r.x;
-            int rRight = r.x + r.width;
-            int rTop = r.y;
-            int rBottom = r.y + r.height;
+            int rCenterX = r.x + r.width/2;
+            int rCenterY = r.y + r.height/2;
 
-            //Has collided
-            if(((pLeft >= rLeft && pLeft <= rRight) ||  //If objects have collided on x axis (left and right sides)
-                (pRight >= rLeft && pRight <= rRight) ||
-                (pLeft >= rLeft && pRight <= rRight) || 
-                (pLeft <= rLeft && pRight >= rRight)) &&
+            int dist = (int)Math.sqrt( Math.pow(pCenterX - rCenterX, 2), Math.pow(pCenterY - rCenterY, 2));
 
-                ((pTop >= rTop && pTop <= rBottom) ||  //If objects have collided on y axis (top and bottom sides)
-                    (pBottom <= rBottom && pBottom >= rTop) ||
-                    (pTop >= rBottom && pBottom <= rBottom ) ||
-                    (pTop <= rBottom && pBottom >= rBottom))) {
-
-                //Collided
+            //If distance between centers is less than two radii added, collision occured
+            if (dist <= this.width/2 + r.width/2){
                 health--;
                 rocks.remove(r);
                 System.out.println("Collided!!!");
