@@ -9,8 +9,8 @@ import java.util.ArrayList;
 public class MyPanel extends JPanel {
 	private ArrayList<MyPoint> points;
 
-	private Planet planet;
-	private ArrayList<Rock> rocks;
+	public Planet planet;
+	public ArrayList<Rock> rocks;
 
 	public MyPanel(){
 		setBounds(0, 0, Constants.FRAME_WIDTH, Constants.FRAME_HEIGHT);

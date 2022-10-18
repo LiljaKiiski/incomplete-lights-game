@@ -55,12 +55,8 @@ public class Planet extends MyObject{
      @Override
     public void paint(Graphics2D g2d){ 
         g2d.setPaint(Constants.PLANET_COLOR);
-        
-        health = 5;
 
         //Percent filled
-        int amntFilled = health * 36;
-
-        g2d.fillArc(x, y, width, height, 0, amntFilled);
+        g2d.fillArc(x, y, width, height, 0, health*36);
     }
 }

@@ -37,9 +37,7 @@ public class Main {
 			if (!mouseLastHeld){
 				panel.clearPoints();
 			}
-
 			panel.addPoint(mouseListener.getCoords());
-
 		}
 
 		mouseLastHeld = mouseListener.isHeld();
@@ -49,6 +47,8 @@ public class Main {
 			addTime = 0;
 			panel.addRock();
 		}
+
+		panel.planet.checkCollisions(panel.rocks);
 
 		//Paint
 		panel.repaint();
