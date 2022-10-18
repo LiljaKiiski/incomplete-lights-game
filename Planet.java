@@ -27,7 +27,7 @@ public class Planet extends MyObject{
             int rCenterX = r.x + r.width/2;
             int rCenterY = r.y + r.height/2;
 
-            int dist = (int)Math.sqrt( Math.pow(pCenterX - rCenterX, 2), Math.pow(pCenterY - rCenterY, 2));
+            int dist = (int)Math.sqrt( Math.pow(pCenterX - rCenterX, 2) + Math.pow(pCenterY - rCenterY, 2));
 
             //If distance between centers is less than two radii added, collision occured
             if (dist <= this.width/2 + r.width/2){
