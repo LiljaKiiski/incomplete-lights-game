@@ -13,6 +13,9 @@ public class Constants {
 	public static final Color PLANET_COLOR = Color.MAGENTA;
 	public static final Color ROCK_COLOR = Color.ORANGE;
 
+	public static final Color RED = Color.RED;
+	public static final Color GREEN = Color.GREEN;
+
 	//Center of screen
 	public static final int CENTERX = FRAME_WIDTH/2;  
     public static final int CENTERY = FRAME_HEIGHT/2;  

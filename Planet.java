@@ -33,7 +33,6 @@ public class Planet extends MyObject{
             if (dist <= this.width/2 + r.width/2){
                 health--;
                 rocks.remove(r);
-                System.out.println("Collided!!!");
             }
         }
     }
@@ -43,9 +42,12 @@ public class Planet extends MyObject{
      */
      @Override
     public void paint(Graphics2D g2d){ 
-        g2d.setPaint(Constants.PLANET_COLOR);
+        //Red underneath
+        g2d.setPaint(Constants.RED);
+        g2d.fillOval(x, y, width, height);
 
         //Percent filled
+        g2d.setPaint(Constants.GREEN);
         g2d.fillArc(x, y, width, height, 0, health*36);
     }
 }
